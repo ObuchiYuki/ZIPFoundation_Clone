@@ -152,8 +152,6 @@ extension FileManager {
         }
 
         for entry in archive {
-//            let path = pathEncoding == nil ? entry.path : entry.path(using: pathEncoding!)
-            
             // custom path encoding
             let encoding = automaticallyDetectPathEncoding ? String.Encoding.appropriateEncoding(for: entry.centralDirectoryStructure.fileNameData) : pathEncoding
             let path = encoding == nil ? entry.path : entry.path(using: encoding!)
